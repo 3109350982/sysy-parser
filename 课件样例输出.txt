@@ -1,0 +1,43 @@
+0 CompUnit @1:1 Children: 1
+1 Function @1:1 Children: 2 3 4 5
+2 Type int (implicit) @1:1 Children:
+3 Name main [lex=0] @1:1 Children:
+4 Params @1:5 Children:
+5 Block @2:1 Children: 6 14
+6 VarDecl @3:5 Children: 7 8 11
+7 Type int @3:5 Children:
+8 Declarator @3:9 Children: 9 10
+9 Name a [lex=1] @3:9 Children:
+10 Dimensions @3:9 Children:
+11 Declarator @3:12 Children: 12 13
+12 Name b [lex=2] @3:12 Children:
+13 Dimensions @3:12 Children:
+14 If @4:5 Children: 15 19
+15 Binary == @4:11 Children: 16 18
+16 LValue @4:9 Children: 17
+17 Name a [lex=1] @4:9 Children:
+18 IntLiteral 0 [value=0] @4:14 Children:
+19 Assign = @5:11 Children: 20 22
+20 LValue @5:9 Children: 21
+21 Name a [lex=1] @5:9 Children:
+22 Binary + @5:15 Children: 23 25
+23 LValue @5:13 Children: 24
+24 Name b [lex=2] @5:13 Children:
+25 IntLiteral 1 [value=1] @5:17 Children:
+
+# SCOPES
+SCOPE	PARENT	NAME	AST_NODE
+0	-	global	0
+1	0	main	1
+
+# DECLARATIONS
+NAME	LEX_ID	KIND	TYPE	SCOPE	RANK	ARITY	LINE	COLUMN	AST_NODE
+main	0	function	int (implicit)	0	0	0	1	1	1
+a	1	variable	int	1	0	-	3	9	8
+b	2	variable	int	1	0	-	3	12	11
+
+# SYMBOL_TABLE
+INDEX	LEXEME	FIRST_LINE	FIRST_COLUMN	OCCURRENCES
+0	main	1	1	1
+1	a	3	9	3
+2	b	3	12	2

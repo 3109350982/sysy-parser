@@ -1,0 +1,30 @@
+const int N = 2, bias = 010;
+const float base = 0x1.8p+1;
+int grid[2][2] = {{1, 2}, {3, 4}};
+
+float average(int a[][2], int n) {
+    int i = 0, sum = 0;
+    while (i < n && i < N) {
+        if (a[i][0] == 0) {
+            i = i + 1;
+            continue;
+        } else if (a[i][1] != 0 || i <= 0) {
+            sum = sum + a[i][0] * 2 / 2 % 100;
+        }
+        if (sum > 1000) break;
+        i = i + 1;
+    }
+    return sum * (.5 + 1.0e-2) + base;
+}
+
+void show(float x) {
+    putfloat(x);
+    return;
+}
+
+int main() {
+    int value = 1;
+    { float value = 2.0; show(value); }
+    show(average(grid, N));
+    return value + bias;
+}
